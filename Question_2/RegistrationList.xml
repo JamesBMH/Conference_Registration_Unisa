@@ -1,0 +1,22 @@
+<registrationlist>
+ <registration type="Student">
+  <Attendee>
+   <Name>james</Name>
+   <Affiliation>Entelect</Affiliation>
+   <Email>james@gmail.com</Email>
+   <Qualification>Computer Science</Qualification>
+  </Attendee>
+  <Booking_Date>2024.07.17</Booking_Date>
+  <Registration_Fee>50</Registration_Fee>
+ </registration>
+ <registration type="Guest">
+  <Attendee>
+   <Name>Henry</Name>
+   <Affiliation>Comcast</Affiliation>
+   <Email>henry@gmail.com</Email>
+   <Category>Telecoms</Category>
+  </Attendee>
+  <Booking_Date>2024.07.17</Booking_Date>
+  <Registration_Fee>10</Registration_Fee>
+ </registration>
+</registrationlist>
