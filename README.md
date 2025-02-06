@@ -4,6 +4,9 @@ How to build:
 Loading the CMakeLists.txt into Qt creator loads the project into Qt.
 The project is then able to be built and run.
 
+Disclaimer:
+Question 1 and 2 of assignment 3 is similar in functionality to the Conference registration program however is less complex thus is not uploaded.
+
 Program explenation:
 
 Detailed criteria for the program is given in the assignment pdf as provided by Unisa.
