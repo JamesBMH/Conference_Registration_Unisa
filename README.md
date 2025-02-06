@@ -35,3 +35,6 @@ cpp file comments explain function specific fuctionality as to avoid confusion.
         -Users can load an existing registration list from their chosen directory
         -If there are registered users when a file is loaded the data will be appended to the table
         -Saving is disabled until a new user has been registered for the conference
+
+    Question 4:
+        Question 4 was not implemented due to time constraints at the time
