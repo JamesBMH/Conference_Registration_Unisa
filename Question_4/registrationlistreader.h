@@ -1,9 +1,9 @@
 #ifndef REGISTRATIONLISTREADER_H
 #define REGISTRATIONLISTREADER_H
 
-#include "registration.h"
-#include "registrationfactory.h"
 #include <QObject>
+
+class Registration;
 
 class RegistrationListReader : public QObject
 {

@@ -2,8 +2,7 @@
 #include "gui.h"
 #include "person.h"
 #include "registration.h"
-#include "studentregistration.h"
-#include "guestregistration.h"
+#include "registrationfactory.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QTableWidget>
@@ -97,47 +96,10 @@ void Gui::addRegistration()
 
     Person tempPerson(tName, tAffiliation, tEmail);
 
-    //RegistrationFactory::getInstance().addRegistration(tempPerson, tQualification, tCategory, registrationType);
-
-    // Creates an appropriate type of registration and adds it to RegistrationList
-    // Updates table with new data
-    /*
-    if (defaultRadio->isChecked()){
-        Registration *tempRegister{new Registration(tempPerson)};
-        tempRegister->setRegisterType("Standard");
-        RegistrationList.addRegistration(tempRegister);
-        table->insertRow(table->rowCount());
-        table->setItem(table->rowCount()-1,0,new QTableWidgetItem(tempPerson.getName()));
-        table->setItem(table->rowCount()-1,1,new QTableWidgetItem(tempPerson.getAffiliation()));
-        table->setItem(table->rowCount()-1,2,new QTableWidgetItem(tempPerson.getEmail()));
-        table->setItem(table->rowCount()-1,3,new QTableWidgetItem(QString::number(tempRegister->calculateFee())));
-        table->setItem(table->rowCount()-1,4,new QTableWidgetItem(tempRegister->getBookingDate().toString("yyyy-MM-dd")));
-    } else if(studentRadio->isChecked()){
-        Registration *tempRegister{new StudentRegistration(tempPerson, tQualification)};
-        tempRegister->setRegisterType("Student");
-        RegistrationList.addRegistration(tempRegister);
-        table->insertRow(table->rowCount());
-        table->setItem(table->rowCount()-1,0,new QTableWidgetItem(tempPerson.getName()));
-        table->setItem(table->rowCount()-1,1,new QTableWidgetItem(tempPerson.getAffiliation()));
-        table->setItem(table->rowCount()-1,2,new QTableWidgetItem(tempPerson.getEmail()));
-        table->setItem(table->rowCount()-1,3,new QTableWidgetItem(QString::number(tempRegister->calculateFee())));
-        table->setItem(table->rowCount()-1,4,new QTableWidgetItem(tempRegister->getBookingDate().toString("yyyy-MM-dd")));
-    } else if(guestRadio->isChecked()){
-        Registration *tempRegister{new GuestRegistration(tempPerson, tCategory)};
-        tempRegister->setRegisterType("Guest");
-        RegistrationList.addRegistration(tempRegister);
-        table->insertRow(table->rowCount());
-        table->setItem(table->rowCount()-1,0,new QTableWidgetItem(tempPerson.getName()));
-        table->setItem(table->rowCount()-1,1,new QTableWidgetItem(tempPerson.getAffiliation()));
-        table->setItem(table->rowCount()-1,2,new QTableWidgetItem(tempPerson.getEmail()));
-        table->setItem(table->rowCount()-1,3,new QTableWidgetItem(QString::number(tempRegister->calculateFee())));
-        table->setItem(table->rowCount()-1,4,new QTableWidgetItem(tempRegister->getBookingDate().toString("yyyy-MM-dd")));
-    }*/
-
-    //RegistrationList.addRegistration(RegistrationFactory::getInstance().addRegistration(tempPerson, tQualification, tCategory, registrationType));
-
+    // Creates an appropriate type of registration and adds it to RegistrationList using RegistrationFactory
     Registration *tempRegister = RegistrationFactory::getInstance().addRegistration(tempPerson, tQualification, tCategory, registrationType);
 
+    // Updates table with new data
     RegistrationList.addRegistration(tempRegister);
     table->insertRow(table->rowCount());
     table->setItem(table->rowCount()-1,0,new QTableWidgetItem(tempPerson.getName()));

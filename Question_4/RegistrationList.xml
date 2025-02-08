@@ -1,4 +1,14 @@
 <registrationlist>
+ <registration type="Guest">
+  <Attendee>
+   <Name>Hector</Name>
+   <Affiliation>Nashua</Affiliation>
+   <Email>hector@nashua</Email>
+   <Category>Printers</Category>
+  </Attendee>
+  <Booking_Date>2025.02.08</Booking_Date>
+  <Registration_Fee>10</Registration_Fee>
+ </registration>
  <registration type="Standard">
   <Attendee>
    <Name>Pierneef</Name>

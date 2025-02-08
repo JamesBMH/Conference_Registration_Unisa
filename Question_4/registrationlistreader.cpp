@@ -1,8 +1,7 @@
 //13413120 JBM HERTZOG
 #include "registrationlistreader.h"
 #include "registration.h"
-#include "guestregistration.h"
-#include "studentregistration.h"
+#include "registrationfactory.h"
 #include "person.h"
 #include <QXmlStreamReader>
 #include <QFile>
@@ -92,12 +91,6 @@ QList<Registration*> RegistrationListReader::readXml(QString fileName)
 
                 iRegistrationType = 1;
                 category = "";
-
-                /*
-                Person temp(name, affiliation, email);
-                Registration *tempStudent{new StudentRegistration(temp, qualification, bookingDate)};
-                tempStudent->setRegisterType("Student");
-                tempList.append(tempStudent);*/
             } else if(registrationType == "Guest"){
                 QDomNode categoryNode = attendeeList.at(3);
                 QDomElement categoryElement = categoryNode.toElement();
@@ -105,23 +98,13 @@ QList<Registration*> RegistrationListReader::readXml(QString fileName)
 
                 iRegistrationType = 2;
                 qualification = "";
-
-                /*
-                Person temp(name, affiliation, email);
-                Registration *tempGuest{new GuestRegistration(temp, category, bookingDate)};
-                tempGuest->setRegisterType("Guest");
-                tempList.append(tempGuest);*/
             }else {
                 iRegistrationType = 0;
-
-                /*
-                Person temp(name, affiliation, email);
-                Registration *tempStandard{new Registration(temp, bookingDate)};
-                tempStandard->setRegisterType("Standard");
-                tempList.append(tempStandard);*/
             }
 
             Person temp(name, affiliation, email);
+
+            // Use RegistrationFactory to create Registration objects
             tempList.append(RegistrationFactory::getInstance().addRegistration(temp, qualification, category, iRegistrationType, bookingDate));
         }
     }

@@ -3,7 +3,6 @@
 #define REGISTRATIONLISTWRITER_H
 
 #include <QObject>
-#include "registrationlist.h"
 
 class QDir;
 

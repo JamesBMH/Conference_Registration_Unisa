@@ -2,33 +2,31 @@
 #ifndef REGISTRATIONFACTORY_H
 #define REGISTRATIONFACTORY_H
 
-#include "registrationlist.h"
-#include "registration.h"
-#include "studentregistration.h"
-#include "guestregistration.h"
 #include "person.h"
 #include <QObject>
+
+class Registration;
 
 class RegistrationFactory : public QObject
 {
     Q_OBJECT
 public:
-    //Returns singleton instance
+    // Returns singleton instance
     static RegistrationFactory& getInstance();
-    //Creates appropriate Registration object and returns pointer to that object
+    // Creates appropriate Registration object and returns pointer to that object
     Registration* addRegistration(Person tPerson, QString tQualification, QString tCategory, int registrationType);
-    //Overloaded addRegistration for RegistrationListReader due to extra date requirement
+    // Overloaded addRegistration for RegistrationListReader due to extra date requirement
     Registration* addRegistration(Person tPerson, QString tQualification, QString tCategory, int registrationType, QString tDate);
 private:
-    //Private constructor
+    // Private constructor
     explicit RegistrationFactory(QObject *parent = nullptr);
-    //Destructor
+    // Destructor
     ~RegistrationFactory();
-    //Delete copy constructor
+    // Delete copy constructor
     RegistrationFactory(RegistrationFactory const&) = delete;
-    //Delete overload assignment opererator
+    // Delete overload assignment opererator
     RegistrationFactory& operator=(RegistrationFactory const&) = delete;
-    //Singleton instance
+    // Singleton instance
     static RegistrationFactory *instance;
 };
 

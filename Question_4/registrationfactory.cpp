@@ -1,4 +1,7 @@
 #include "registrationfactory.h"
+#include "registration.h"
+#include "studentregistration.h"
+#include "guestregistration.h"
 RegistrationFactory* RegistrationFactory::instance = nullptr;
 
 RegistrationFactory &RegistrationFactory::getInstance()

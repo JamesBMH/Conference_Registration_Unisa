@@ -5,7 +5,6 @@
 #include "registrationlist.h"
 #include "registrationlistreader.h"
 #include "registrationlistwriter.h"
-#include "registrationfactory.h"
 #include <QWidget>
 
 class QTableWidget;
