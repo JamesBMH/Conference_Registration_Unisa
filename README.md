@@ -40,4 +40,5 @@ cpp file comments explain function specific fuctionality as to avoid confusion.
         -Saving is disabled until a new user has been registered for the conference
 
     Question 4:
-        -In progress
+        -All functionality of question 3
+        -All instances where Registration objects are created were updated to use the new RegistrationFactory for object creation
