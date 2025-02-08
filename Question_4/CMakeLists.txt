@@ -23,6 +23,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         guestregistration.cpp guestregistration.h gui.cpp gui.h person.cpp person.h registration.cpp registration.h registrationlist.cpp registrationlist.h registrationlistreader.cpp registrationlistreader.h registrationlistwriter.cpp registrationlistwriter.h studentregistration.cpp studentregistration.h
+        registrationfactory.h registrationfactory.cpp
     )
 
 # Link project with Xml package
