@@ -1,0 +1,61 @@
+<registrationlist>
+ <registration type="Standard">
+  <Attendee>
+   <Name>Pierneef</Name>
+   <Affiliation>Asus</Affiliation>
+   <Email>pierneef@gmail.com</Email>
+  </Attendee>
+  <Booking_Date>2024.07.17</Booking_Date>
+  <Registration_Fee>100</Registration_Fee>
+ </registration>
+ <registration type="Guest">
+  <Attendee>
+   <Name>Sannie</Name>
+   <Affiliation>Entelect</Affiliation>
+   <Email>sannie@enetelect.com</Email>
+   <Category>Tech</Category>
+  </Attendee>
+  <Booking_Date>2024.07.17</Booking_Date>
+  <Registration_Fee>10</Registration_Fee>
+ </registration>
+ <registration type="Student">
+  <Attendee>
+   <Name>james</Name>
+   <Affiliation>Entelect</Affiliation>
+   <Email>james@gmail.com</Email>
+   <Qualification>Computer Science</Qualification>
+  </Attendee>
+  <Booking_Date>2024.07.17</Booking_Date>
+  <Registration_Fee>50</Registration_Fee>
+ </registration>
+ <registration type="Guest">
+  <Attendee>
+   <Name>Henry</Name>
+   <Affiliation>Comcast</Affiliation>
+   <Email>henry@gmail.com</Email>
+   <Category>Telecoms</Category>
+  </Attendee>
+  <Booking_Date>2024.07.17</Booking_Date>
+  <Registration_Fee>10</Registration_Fee>
+ </registration>
+ <registration type="Student">
+  <Attendee>
+   <Name>Cyril</Name>
+   <Affiliation>Boeing</Affiliation>
+   <Email>cyril@boeing.com</Email>
+   <Qualification>Bsc Computer Science</Qualification>
+  </Attendee>
+  <Booking_Date>2025.02.08</Booking_Date>
+  <Registration_Fee>50</Registration_Fee>
+ </registration>
+ <registration type="Guest">
+  <Attendee>
+   <Name>Thabo</Name>
+   <Affiliation>Nashua</Affiliation>
+   <Email>thabo@nashua.com</Email>
+   <Category>Printers</Category>
+  </Attendee>
+  <Booking_Date>2025.02.08</Booking_Date>
+  <Registration_Fee>10</Registration_Fee>
+ </registration>
+</registrationlist>

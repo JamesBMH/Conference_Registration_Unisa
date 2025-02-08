@@ -17,6 +17,7 @@ QList<Registration*> RegistrationListReader::readXml(QString fileName)
 {
     // Declarations
     QString name, affiliation, email, qualification{""}, category{""}, bookingDate, registrationFee;
+    int iRegistrationType;
     QList<Registration*> tempList;
     QFile file(fileName);
     QDomDocument xmlDom;
@@ -89,25 +90,39 @@ QList<Registration*> RegistrationListReader::readXml(QString fileName)
                 QDomElement qualificationElement = qualificationNode.toElement();
                 qualification = qualificationElement.text();
 
+                iRegistrationType = 1;
+                category = "";
+
+                /*
                 Person temp(name, affiliation, email);
                 Registration *tempStudent{new StudentRegistration(temp, qualification, bookingDate)};
                 tempStudent->setRegisterType("Student");
-                tempList.append(tempStudent);
+                tempList.append(tempStudent);*/
             } else if(registrationType == "Guest"){
                 QDomNode categoryNode = attendeeList.at(3);
                 QDomElement categoryElement = categoryNode.toElement();
                 category = categoryElement.text();
 
+                iRegistrationType = 2;
+                qualification = "";
+
+                /*
                 Person temp(name, affiliation, email);
                 Registration *tempGuest{new GuestRegistration(temp, category, bookingDate)};
                 tempGuest->setRegisterType("Guest");
-                tempList.append(tempGuest);
+                tempList.append(tempGuest);*/
             }else {
+                iRegistrationType = 0;
+
+                /*
                 Person temp(name, affiliation, email);
                 Registration *tempStandard{new Registration(temp, bookingDate)};
                 tempStandard->setRegisterType("Standard");
-                tempList.append(tempStandard);
+                tempList.append(tempStandard);*/
             }
+
+            Person temp(name, affiliation, email);
+            tempList.append(RegistrationFactory::getInstance().addRegistration(temp, qualification, category, iRegistrationType, bookingDate));
         }
     }
 

@@ -2,6 +2,7 @@
 #define REGISTRATIONLISTREADER_H
 
 #include "registration.h"
+#include "registrationfactory.h"
 #include <QObject>
 
 class RegistrationListReader : public QObject
