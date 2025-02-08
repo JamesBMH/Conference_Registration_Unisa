@@ -74,6 +74,17 @@ void Gui::addRegistration()
     QString tEmail = emailLineEdit->text();
     QString tQualification = qLineEdit->text();
     QString tCategory = cLineEdit->text();
+    int registrationType = -1;
+
+    if (defaultRadio->isChecked()){
+        registrationType = 0;
+    }
+    else if (studentRadio->isChecked()){
+        registrationType = 1;
+    }
+    else if (guestRadio->isChecked()){
+        registrationType = 2;
+    }
 
     // Check if email is duplicated
     if (RegistrationList.checkEmailDupes(tEmail, tName)){
@@ -86,8 +97,11 @@ void Gui::addRegistration()
 
     Person tempPerson(tName, tAffiliation, tEmail);
 
+    //RegistrationFactory::getInstance().addRegistration(tempPerson, tQualification, tCategory, registrationType);
+
     // Creates an appropriate type of registration and adds it to RegistrationList
     // Updates table with new data
+    /*
     if (defaultRadio->isChecked()){
         Registration *tempRegister{new Registration(tempPerson)};
         tempRegister->setRegisterType("Standard");
@@ -118,7 +132,19 @@ void Gui::addRegistration()
         table->setItem(table->rowCount()-1,2,new QTableWidgetItem(tempPerson.getEmail()));
         table->setItem(table->rowCount()-1,3,new QTableWidgetItem(QString::number(tempRegister->calculateFee())));
         table->setItem(table->rowCount()-1,4,new QTableWidgetItem(tempRegister->getBookingDate().toString("yyyy-MM-dd")));
-    }
+    }*/
+
+    //RegistrationList.addRegistration(RegistrationFactory::getInstance().addRegistration(tempPerson, tQualification, tCategory, registrationType));
+
+    Registration *tempRegister = RegistrationFactory::getInstance().addRegistration(tempPerson, tQualification, tCategory, registrationType);
+
+    RegistrationList.addRegistration(tempRegister);
+    table->insertRow(table->rowCount());
+    table->setItem(table->rowCount()-1,0,new QTableWidgetItem(tempPerson.getName()));
+    table->setItem(table->rowCount()-1,1,new QTableWidgetItem(tempPerson.getAffiliation()));
+    table->setItem(table->rowCount()-1,2,new QTableWidgetItem(tempPerson.getEmail()));
+    table->setItem(table->rowCount()-1,3,new QTableWidgetItem(QString::number(tempRegister->calculateFee())));
+    table->setItem(table->rowCount()-1,4,new QTableWidgetItem(tempRegister->getBookingDate().toString("yyyy-MM-dd")));
 
     defaults();
 
@@ -198,6 +224,11 @@ void Gui::loadFile()
         table->setItem(table->rowCount()-1,4,new QTableWidgetItem(tempList[i]->getBookingDate().toString("yyyy-MM-dd")));
 
     }
+}
+
+void Gui::addToTable()
+{
+
 }
 
 void Gui::defaultClicked()

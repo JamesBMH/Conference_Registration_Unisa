@@ -5,6 +5,7 @@
 #include "registrationlist.h"
 #include "registrationlistreader.h"
 #include "registrationlistwriter.h"
+#include "registrationfactory.h"
 #include <QWidget>
 
 class QTableWidget;
@@ -52,6 +53,7 @@ private slots:
     // Uses RegistrationList.addRegistration to add the registration items to RegistrationList
     // Manually update the table with the new data
     void loadFile();
+    void addToTable();
 
     // Clears fields and disables LineEdits depending on what radio button is chosen
     void defaultClicked();
